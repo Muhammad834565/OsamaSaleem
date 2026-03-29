@@ -105,10 +105,41 @@
             color: #00c3ff;
             background: rgba(0, 195, 255, 0.1);
         }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-play-state: paused; /* wait for load */
+        }
+
+        body.loaded .animate-fade-in-up {
+            animation-play-state: running;
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
     </style>
 </head>
 
 <body class="relative min-h-screen flex flex-col">
+    <!-- Loader Sequence -->
+    <div id="loader" class="fixed inset-0 bg-[#050505] z-[100] flex flex-col items-center justify-center transition-all duration-[800ms] ease-in-out">
+        <div class="relative w-16 h-16 mb-6">
+            <div class="absolute inset-0 border-4 border-[#00c3ff]/20 rounded-full"></div>
+            <div class="absolute inset-0 border-4 border-[#00c3ff] rounded-full border-t-transparent animate-spin"></div>
+            <div class="absolute inset-5 bg-[#00c3ff]/30 rounded-full animate-pulse"></div>
+        </div>
+        <h2 class="text-[#00c3ff] tracking-[0.4em] uppercase font-mono text-xs animate-pulse">INITIALIZING</h2>
+    </div>
+
     <div class="noise-overlay"></div>
 
     <!-- Navigation -->
@@ -145,17 +176,17 @@
             <!-- Text Content -->
             <div
                 class="w-full md:w-[55%] z-20 relative text-center md:text-left flex flex-col items-center md:items-start pt-48 mt-16 md:pt-10 md:mt-0">
-                <p class="accent-text text-sm md:text-base mb-4 font-mono tracking-widest uppercase">Welcome To My World
+                <p class="animate-fade-in-up delay-100 accent-text text-sm md:text-base mb-4 font-mono tracking-widest uppercase">Welcome To My World
                 </p>
                 <h1
-                    class="text-6xl md:text-8xl lg:text-[8rem] font-bold leading-[0.9] mb-8 mt-0 tracking-tighter w-full text-white drop-shadow-lg">
+                    class="animate-fade-in-up delay-200 text-6xl md:text-8xl lg:text-[8rem] font-bold leading-[0.9] mb-8 mt-0 tracking-tighter w-full text-white drop-shadow-lg">
                     Osama Saleem
                 </h1>
                 <div
-                    class="animate-float accent-bg text-black px-6 md:px-8 py-2 md:py-3 lg:py-2 rounded-full text-sm md:text-base lg:text-sm font-bold uppercase tracking-widest mb-10 shadow-[0_0_20px_rgba(0,195,255,0.4)]">
+                    class="animate-fade-in-up delay-300 animate-float accent-bg text-black px-6 md:px-8 py-2 md:py-3 lg:py-2 rounded-full text-sm md:text-base lg:text-sm font-bold uppercase tracking-widest mb-10 shadow-[0_0_20px_rgba(0,195,255,0.4)]">
                     Creative Strategist & Video Editor
                 </div>
-                <p class="text-gray-400 text-base md:text-lg max-w-lg leading-relaxed mb-10 md:mb-0 md:pb-20">
+                <p class="animate-fade-in-up delay-400 text-gray-400 text-base md:text-lg max-w-lg leading-relaxed mb-10 md:mb-0 md:pb-20">
                     Creative and results-driven professional with 5+ years of experience delivering high-impact,
                     conversion-focused visual content globally. Specialized in <span
                         class="text-white font-semibold">Brand Identity</span>, <span
@@ -558,6 +589,28 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Trigger loading screen fade out and initialization animations
+        window.addEventListener('load', function () {
+            // Slight artificial delay so the loader is visible for a minimum elegant duration
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                
+                // Add class to un-pause the staggered text animations
+                document.body.classList.add('loaded');
+                
+                // Fade out loader
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
+                
+                // Remove loader from DOM flow completely after fade completes
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 800);
+            }, 600);
+        });
+    </script>
 </body>
 
 </html>
