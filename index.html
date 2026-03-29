@@ -116,38 +116,65 @@
     <main class="flex-grow pt-32">
         <!-- Hero Section -->
         <section id="home"
-            class="min-h-[80vh] flex flex-col md:flex-row items-center relative px-6 md:px-10 max-w-7xl mx-auto pb-20 md:pb-0">
-            <div class="w-full md:w-1/2 z-10 relative">
+            class="min-h-[85vh] w-full flex flex-col md:flex-row items-center relative px-6 md:px-10 max-w-7xl mx-auto pb-20 md:pb-0">
 
-                <h1 class="text-5xl md:text-8xl font-bold leading-tight mb-6 mt-0">
-                    I'm Osama<br>Saleem
+            <!-- Text Content -->
+            <div
+                class="w-full md:w-[55%] z-20 relative text-center md:text-left flex flex-col items-center md:items-start pt-48 mt-16 md:pt-10 md:mt-0">
+                <p class="accent-text text-sm md:text-base mb-4 font-mono tracking-widest uppercase">Welcome To My World
+                </p>
+                <h1
+                    class="text-6xl md:text-8xl lg:text-[8rem] font-bold leading-[0.9] mb-8 mt-0 tracking-tighter w-full text-white drop-shadow-lg">
+                    Osama Saleem
                 </h1>
                 <div
-                    class="accent-bg text-black inline-block px-4 py-1 text-sm font-bold uppercase tracking-wider mb-8">
-                    Graphic Designer & Video Editor
+                    class="accent-bg text-black px-6 py-2 rounded-full text-sm font-bold uppercase tracking-widest mb-10 shadow-[0_0_20px_rgba(0,195,255,0.4)]">
+                    Creative Strategist & Video Editor
                 </div>
-                <p class="text-gray-400 text-sm md:text-base max-w-md leading-relaxed pb-20 md:pb-20">
-                    Creative and results-driven individual with 5+ years of experience delivering high-impact,
-                    conversion-focused visual content for global clients. Specialized in Brand Identity, Social Media
-                    Design, and Whiteboard Animation.
+                <p class="text-gray-400 text-base md:text-lg max-w-lg leading-relaxed mb-10 md:mb-0 md:pb-20">
+                    Creative and results-driven professional with 5+ years of experience delivering high-impact,
+                    conversion-focused visual content globally. Specialized in <span
+                        class="text-white font-semibold">Brand Identity</span>, <span
+                        class="text-white font-semibold">Social Media Design</span>, and <span
+                        class="text-white font-semibold">Whiteboard Animations</span>.
                 </p>
             </div>
+
+            <!-- Image/Visual Content -->
             <div
-                class="w-full absolute right-0 bottom-0 h-full flex items-end justify-end opacity-20 md:opacity-90 transition duration-700 pointer-events-none md:w-1/2 md:pointer-events-auto">
-                <!-- User photo overlay -->
-                <div
-                    class="w-full md:w-[500px] h-3/4 md:h-[600px] bg-gradient-to-t from-[#050505] to-transparent z-10 absolute bottom-0 right-0 pointer-events-none">
+                class="absolute inset-0 md:relative w-full md:w-[45%] h-full flex flex-col items-center justify-center md:items-end md:justify-end opacity-40 md:opacity-100 z-0 pointer-events-none overflow-hidden md:overflow-visible">
+
+                <!-- Modern Image Container -->
+                <div class="absolute inset-0 w-full h-full md:relative md:h-[80vh] md:max-w-lg bottom-0 flex items-end">
+                    <!-- Gradients to blend image cleanly into background -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent z-20">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-l from-[#050505] via-transparent to-transparent z-20 hidden md:block">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/20 to-transparent z-20 hidden md:block">
+                    </div>
+
+                    <!-- Decorative accent glow -->
+                    <div
+                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#00c3ff] rounded-full blur-[120px] opacity-30 z-0 hidden md:block">
+                    </div>
+
+                    <!-- Profile Image -->
+                    <img src="profile.jpeg" alt="Osama Saleem Profile"
+                        class="absolute inset-0 md:relative w-full h-full object-cover object-top z-10 hover:scale-[1.02] transition-all duration-700"
+                        onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop'" />
                 </div>
-                <!-- Assuming the user saves the attached guitar/sunglasses image as profile.jpeg in the same directory -->
-                <img src="profile.jpeg" alt="Osama Saleem Profile" class="h-full object-cover object-bottom"
-                    onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop'" />
             </div>
 
+            <!-- Bottom Tracking Line -->
             <div
-                class="absolute bottom-10 left-6 md:left-10 w-[calc(100%-48px)] md:w-[calc(100%-80px)] flex items-center z-10">
-                <div class="w-2 h-2 rounded-full border border-white bg-transparent mr-4"></div>
-                <div class="h-px bg-white/40 flex-grow mr-4"></div>
-                <div class="text-sm tracking-widest text-white/60">PORTFOLIO 2026</div>
+                class="absolute bottom-10 left-6 md:left-10 w-[calc(100%-48px)] md:w-[calc(100%-80px)] flex items-center z-30">
+                <div class="w-2 h-2 rounded-full border border-white bg-transparent mr-4 shadow-[0_0_10px_#fff]"></div>
+                <div class="h-px bg-white/40 flex-grow mr-4 hidden md:block"></div>
+                <div class="h-px bg-white/20 flex-grow mr-4 md:hidden"></div>
+                <div class="text-xs md:text-sm tracking-widest text-white/50 font-mono">EST. 2026</div>
             </div>
         </section>
 
